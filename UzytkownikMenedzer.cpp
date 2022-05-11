@@ -49,12 +49,14 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login){
     return false;
 }
 
-
 void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
     for (int i = 0; i < uzytkownicy.size(); i++){
         cout << uzytkownicy[i].pobierzLogin() << '\n';
-        cout << uzytkownicy[i].pobierzHaslo();
+        cout << uzytkownicy[i].pobierzHaslo() << '\n';
         }
 return false;
 }
 
+void UzytkownikMenedzer::wczytajUzytkownikowZPliku(){
+    plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+}
