@@ -23,7 +23,7 @@ public:
     PlikZUzytkownikami();
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     string wczytajLinie();
-    void wczytajUzytkownikowZPliku(vector <Uzytkownik> &uzytkownicy);
+    vector <Uzytkownik> wczytajUzytkownikowZPliku();
 
 };
 

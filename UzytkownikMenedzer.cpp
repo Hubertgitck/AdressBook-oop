@@ -58,5 +58,5 @@ return false;
 }
 
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku(){
-    plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
