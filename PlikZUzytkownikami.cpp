@@ -34,12 +34,6 @@ bool PlikZUzytkownikami::czyPlikJestPusty(){
         return false;
 }
 
-string PlikZUzytkownikami::wczytajLinie(){
-    string wejscie = "";
-    getline(cin, wejscie);
-    return wejscie;
-}
-
 string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik){
     string liniaZDanymiUzytkownika = "";
     MetodyPomocnicze metodyPomocnicze;

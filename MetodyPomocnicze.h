@@ -10,6 +10,7 @@ class MetodyPomocnicze{
 
 public:
     string konwerjsaIntNaString(int liczba);
+    string wczytajLinie();
 };
 
 #endif // METODYPOMOCNICZE_H

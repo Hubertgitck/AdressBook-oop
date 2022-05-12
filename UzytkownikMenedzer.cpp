@@ -17,16 +17,17 @@ void UzytkownikMenedzer::rejestracjaUzytkownika(){
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika(){
     Uzytkownik uzytkownik;
+    MetodyPomocnicze metodyPomocnicze;
 
     uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
 
     do{
         cout << "Podaj login: ";
-        uzytkownik.ustawLogin(plikZUzytkownikami.wczytajLinie());
+        uzytkownik.ustawLogin(metodyPomocnicze.wczytajLinie());
     } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
 
     cout << "Podaj haslo: ";
-    uzytkownik.ustawHaslo(plikZUzytkownikami.wczytajLinie());
+    uzytkownik.ustawHaslo(metodyPomocnicze.wczytajLinie());
 
     return uzytkownik;
 }
