@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>66</x>
+      <y>66</y>
+      <w>770</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>KsiazkAdresowa
+------------------------
+- idOstatniegoAdresata : Integer
+- idUsunietegoAdresata : Integer
+--
+KsiazkaAdresowa()
++rejestracjaUzytkownika() : void
++wypiszWszystkichUzytkownikow() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>847</x>
+      <y>66</y>
+      <w>99</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+----------------
+- id : Integer
+- login : String
+- haslo : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>451</x>
+      <y>429</y>
+      <w>374</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>UzytkownikManager
+--
+- idZalogowanegoUzytkownika : Integer
+- uzytkownicy : vector &lt;Uzytkownik&gt;
+--
++ rejestracjaUzytkownika() : void
++ logowanieUzytkownika() : Integer
++ wypiszWszystkichUzytkownikow() : void
++ wczytajUzytkownikowZPliku() : void
+- podajDaneNowegoUzytkownika() : Uzytkownik
+- pobierzIdNowegoUzytkownika() : Integer
+- czyIstniejeLogin(string login) : Bool
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>66</x>
+      <y>429</y>
+      <w>374</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+--
+- nazwaPlikuZUzytkownikami : String
+- fstream : plikTekstowy
+
+--
++PlikZUzytkownikami()
++ dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) : void
++ wczytajUzytkownikowZPliku() : void
+- wczytajLinie() : String
+- czyPlikJestPusty(fstream &amp;plikTekstowy) : bool
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) : string
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>957</x>
+      <y>66</y>
+      <w>286</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+-
++ konwerjsaIntNaString(int liczba) : string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>308</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Adresat</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>429</y>
+      <w>242</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>AdresatMenedzer</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
