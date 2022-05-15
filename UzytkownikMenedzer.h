@@ -10,6 +10,8 @@
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
 
+using namespace std;
+
 class UzytkownikMenedzer{
     vector <Uzytkownik> uzytkownicy;
     int idZalogowanegoUzytkownika;
