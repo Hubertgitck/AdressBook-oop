@@ -2,7 +2,6 @@
 #define ADRESAT_H
 
 #include <iostream>
-
 using namespace std;
 
 class Adresat{
@@ -10,6 +9,7 @@ class Adresat{
     string imie, nazwisko, numerTelefonu, email, adres;
 
 public:
+
     void ustawId(int noweId);
     void ustawIdUzytkownika (int noweIdUzytkownika);
     void ustawImie(string noweImie);
