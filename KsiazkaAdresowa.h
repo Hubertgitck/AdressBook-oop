@@ -13,6 +13,7 @@ class KsiazkaAdresowa{
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer adresatMenedzer;
     vector <Uzytkownik> uzytkownicy;
+    int idZalogowanegoUzytkownika;
 
 public:
 
@@ -26,6 +27,7 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
     void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 
 };
 

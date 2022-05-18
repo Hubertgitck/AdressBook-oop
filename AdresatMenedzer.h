@@ -6,7 +6,6 @@
 
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
-#include "UzytkownikMenedzer.h"
 
 using namespace std;
 
@@ -15,7 +14,6 @@ class AdresatMenedzer{
     vector <Adresat> adresaci;
     PlikZAdresatami plikZAdresatami;
     MetodyPomocnicze metodyPomocnicze;
-    UzytkownikMenedzer UzytkownikMenedzer;
 
     int idZalogowanegoUzytkownika;
     int idOstatniegoAdresata;
@@ -24,11 +22,13 @@ class AdresatMenedzer{
 
 public:
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami){
-        idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
         idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
     };
 
-    int dodajAdresata();
+    int dodajAdresata(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow();
+    void wyswietlDaneAdresata(Adresat adresat);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 
 };
 
