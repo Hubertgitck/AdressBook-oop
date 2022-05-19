@@ -2,7 +2,9 @@
 
 using namespace std;
 
-
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika(){
+    return idZalogowanegoUzytkownika;
+}
 
 void UzytkownikMenedzer::rejestracjaUzytkownika(){
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -77,7 +79,8 @@ int UzytkownikMenedzer::logowanieUzytkownika(){
                 if (itr -> pobierzHaslo() == haslo){
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return idZalogowanegoUzytkownika = itr -> pobierzId();
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
+                    return idZalogowanegoUzytkownika ;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
