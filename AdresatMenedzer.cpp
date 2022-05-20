@@ -73,3 +73,9 @@ void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogo
     plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
 }
 
+
+void AdresatMenedzer::wyczyscWektorAdresaci(){
+    adresaci.clear();
+}
+
+

@@ -30,6 +30,9 @@ public:
     void wyswietlDaneAdresata(Adresat adresat);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 
+    void wyczyscWektorAdresaci();
+
+
 };
 
 #endif
