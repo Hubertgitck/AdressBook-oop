@@ -37,13 +37,4 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow(){
     adresatMenedzer.wyswietlWszystkichAdresatow();
 }
 
-void KsiazkaAdresowa::dodajAdresata(){
-
-    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
-}
-
-void KsiazkaAdresowa::wyswietlWszystkichAdresatow(){
-
-    adresatMenedzer.wyswietlWszystkichAdresatow();
-}
 
