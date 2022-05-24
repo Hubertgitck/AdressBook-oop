@@ -12,7 +12,7 @@
 using namespace std;
 
 class PlikZUzytkownikami{
-    fstream plikTekstowy;
+
     MetodyPomocnicze metodyPomocnicze;
 
     const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;

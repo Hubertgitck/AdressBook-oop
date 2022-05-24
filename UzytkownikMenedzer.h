@@ -31,9 +31,9 @@ public:
     };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
+    int logowanieUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
 };

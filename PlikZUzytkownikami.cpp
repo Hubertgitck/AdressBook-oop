@@ -1,6 +1,8 @@
 #include "PlikZUzytkownikami.h"
 
 void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik){
+
+    fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
 
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::app);
@@ -31,6 +33,8 @@ string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
 }
 
 vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku(){
+
+    fstream plikTekstowy;
     Uzytkownik uzytkownik;
 
     vector <Uzytkownik> uzytkownicy;
@@ -79,6 +83,7 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
 
 void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> uzytkownicy){
 
+    fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
 
@@ -89,7 +94,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
             liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(*itr);
 
             if (itr == itrKoniec){
-               plikTekstowy << liniaZDanymiUzytkownika;
+                plikTekstowy << liniaZDanymiUzytkownika;
             }
             else{
                 plikTekstowy << liniaZDanymiUzytkownika << endl;

@@ -3,6 +3,8 @@
 using namespace std;
 
 bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
+
+    fstream plikTekstowy;
     string liniaZDanymiAdresata = "";
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
@@ -129,4 +131,73 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
     return idOstatniegoAdresata;
+}
+
+void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata){
+
+    string liniaRobocza,idAdresataJakoString;
+    int idAdresataPobraneZPlikuInt;
+
+    ifstream plikTekstowy;
+    plikTekstowy.open("Adresaci.txt");
+
+    ofstream plikTymczasowy;
+    plikTymczasowy.open("temp.txt",ios::out|ios::app);
+
+    while (getline(plikTekstowy, idAdresataJakoString,'|')){
+        idAdresataPobraneZPlikuInt = metodyPomocnicze.konwersjaStringNaInt(idAdresataJakoString);
+        if (idAdresataPobraneZPlikuInt != idUsuwanegoAdresata){
+            plikTymczasowy << idAdresataJakoString << '|';
+            getline(plikTekstowy, liniaRobocza, '\n');
+            plikTymczasowy << liniaRobocza ;
+
+            if (idAdresataPobraneZPlikuInt != idOstatniegoAdresata-1)
+            plikTymczasowy << '\n';
+        }
+        else
+            getline(plikTekstowy,liniaRobocza, '\n');
+    }
+
+    plikTekstowy.close();
+    plikTymczasowy.close();
+
+    remove("Adresaci.txt");
+    rename("temp.txt", "Adresaci.txt");
+}
+
+void PlikZAdresatami::zaktualizujDaneWybranegoAdresata (Adresat adresat, int idEdytowanegoAdresata){
+    int idAdresataPobraneZPlikuInt = 0, idUzytkownikaPobraneZPlikuInt = 0;
+    string idEdytowanegoAdresataPobraneZPlikuString = "", liniaRobocza = "", idUzytkownikaPobraneZPliku = "";
+
+    ifstream plikTekstowy("Adresaci.txt");
+    ofstream plikTymczasowy;
+    plikTymczasowy.open("temp.txt",ios::out|ios::app);
+
+    while(getline(plikTekstowy,idEdytowanegoAdresataPobraneZPlikuString, '|')) {
+
+        idAdresataPobraneZPlikuInt = stoi(idEdytowanegoAdresataPobraneZPlikuString);
+
+        getline(plikTekstowy,idUzytkownikaPobraneZPliku,'|');
+        idUzytkownikaPobraneZPlikuInt = stoi(idUzytkownikaPobraneZPliku);
+
+        if (idAdresataPobraneZPlikuInt == idEdytowanegoAdresata){
+            plikTymczasowy << idEdytowanegoAdresataPobraneZPlikuString << '|' << idUzytkownikaPobraneZPliku << '|';
+            plikTymczasowy << adresat.pobierzImie()  << '|' << adresat.pobierzNazwisko() << '|' << adresat.pobierzEmail() << '|'
+            << adresat.pobierzNumerTelefonu() << '|' << adresat.pobierzAdres()<< '|';
+            getline(plikTekstowy,liniaRobocza, '\n');
+        }
+        else{
+            plikTymczasowy << idEdytowanegoAdresataPobraneZPlikuString << '|' << idUzytkownikaPobraneZPliku << '|';
+            getline(plikTekstowy,liniaRobocza,'\n');
+            plikTymczasowy << liniaRobocza ;
+        }
+
+        if (idAdresataPobraneZPlikuInt != idOstatniegoAdresata)
+            plikTymczasowy << '\n';
+    }
+    plikTekstowy.close();
+    plikTymczasowy.close();
+
+    remove("Adresaci.txt");
+    rename("temp.txt", "Adresaci.txt");
 }

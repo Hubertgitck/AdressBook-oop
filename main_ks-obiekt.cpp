@@ -3,26 +3,76 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
+
+    char wybor;
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
 
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-    system("pause");
-    ksiazkaAdresowa.dodajAdresata();
+    while (true){
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == 0){
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
-    ksiazkaAdresowa.wylogowanieUzytkownika();
+            switch (wybor){
+            case '1':
+                ksiazkaAdresowa.rejestracjaUzytkownika();
+                break;
+            case '2':
+                ksiazkaAdresowa.logowanieUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+        else{
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-    system("pause");
-
-    ksiazkaAdresowa.dodajAdresata();
-
-
-
-
-    return 0;
+            switch (wybor){
+            case '1':
+                ksiazkaAdresowa.dodajAdresata();
+                break;
+            case '2':
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+                break;
+            case '3':
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                break;
+            case '4':
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                break;
+            case '5':
+                ksiazkaAdresowa.usunAdresata();
+                break;
+            case '6':
+                ksiazkaAdresowa.edytujAdresata();
+                break;
+            case '7':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '8':
+                ksiazkaAdresowa.wylogowanieUzytkownika();
+                break;
+            }
+        }
+    }
+return 0;
 }
 
+/*
+#include "AdresatMenedzer.h"
+
+int main(){
+    AdresatMenedzer adresatMenedzer("Adresaci.txt", 1);
+    adresatMenedzer.wyszukajAdresatowPoNazwisku();
+    adresatMenedzer.wyszukajAdresatowPoImieniu();
+    adresatMenedzer.wyswietlWszystkichAdresatow();
+    adresatMenedzer.dodajAdresata();
+    adresatMenedzer.edytujAdresata();
+    adresatMenedzer.usunAdresata();
+    adresatMenedzer.wyswietlWszystkichAdresatow();
+}
+*/

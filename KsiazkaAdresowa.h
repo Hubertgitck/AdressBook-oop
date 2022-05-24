@@ -9,6 +9,7 @@
 using namespace std;
 
 class KsiazkaAdresowa{
+    MetodyPomocnicze metodyPomocnicze;
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer *adresatMenedzer;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
@@ -23,6 +24,8 @@ public:
         delete adresatMenedzer;
         adresatMenedzer = NULL;
     };
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
@@ -31,6 +34,12 @@ public:
     void wylogowanieUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void edytujAdresata();
+    void usunAdresata();
+    bool czyUzytkownikJestZalogowany();
+
 };
 
 #endif // KSIAZKAADRESOWA_H
