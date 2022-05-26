@@ -49,7 +49,7 @@ int MetodyPomocnicze::wczytajLiczbeCalkowita(){
         stringstream myStream(wejscie);
         if (myStream >> liczba)
             break;
-        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+        cout << "To nie jest liczba. Wpisz ponownie. " << '\n';
     }
     return liczba;
 }
@@ -66,7 +66,7 @@ char MetodyPomocnicze::wczytajZnak(){
             znak = wejscie[0];
             break;
         }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << '\n';
     }
     return znak;
 }

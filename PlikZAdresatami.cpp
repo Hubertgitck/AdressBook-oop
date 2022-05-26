@@ -8,14 +8,14 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
     string liniaZDanymiAdresata = "";
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
-    if (plikTekstowy.good() == true){
+    if (plikTekstowy.good()){
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (metodyPomocnicze.czyPlikJestPusty(plikTekstowy) == true){
+        if (metodyPomocnicze.czyPlikJestPusty(plikTekstowy)){
             plikTekstowy << liniaZDanymiAdresata;
         }
         else{
-            plikTekstowy << endl << liniaZDanymiAdresata ;
+            plikTekstowy << '\n' << liniaZDanymiAdresata ;
         }
         idOstatniegoAdresata++;
         plikTekstowy.close();
@@ -25,6 +25,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
 }
 
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat){
+
     string liniaZDanymiAdresata = "";
 
     liniaZDanymiAdresata += metodyPomocnicze.konwerjsaIntNaString(adresat.pobierzId()) + '|';
@@ -39,6 +40,7 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 }
 
 vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika){
+
     Adresat adresat;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
@@ -46,7 +48,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
     vector <Adresat> adresaci;
     plikTekstowy.open("Adresaci.txt", ios::in);
 
-    if (plikTekstowy.good() == true){
+    if (plikTekstowy.good()){
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)){
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)){
                 adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -56,7 +58,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
         daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
     }
     else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << '\n';
 
     plikTekstowy.close();
 
@@ -68,6 +70,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
 }
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami){
+
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
     int idUzytkownika = metodyPomocnicze.konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
 
@@ -75,6 +78,7 @@ int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(st
 }
 
 Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami){
+
     Adresat adresat;
     string pojedynczaDanaAdresata = "";
     int numerPojedynczejDanejAdresata = 1;
@@ -115,12 +119,14 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
 }
 
 int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami){
+
     int pozycjaRozpoczeciaIdAdresata = 0;
     int idAdresata = metodyPomocnicze.konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
     return idAdresata;
 }
 
 string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){
+
     string liczba = "";
     while(isdigit(tekst[pozycjaZnaku]) == true){
         liczba += tekst[pozycjaZnaku];
@@ -130,13 +136,14 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku){
 }
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata(){
+
     return idOstatniegoAdresata;
 }
 
 void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata){
 
+    int idAdresataPobraneZPlikuInt,idKolejnegoAdresataPobraneZPlikuInt, idPrzedostatniegoAdresata;
     string liniaRobocza,kolejnaLinia;
-    int idAdresataPobraneZPlikuInt,idKolejnegoAdresataPobraneZPlikuInt;
 
     ifstream plikTekstowy;
     plikTekstowy.open("Adresaci.txt");
@@ -151,18 +158,25 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata){
 
         idKolejnegoAdresataPobraneZPlikuInt = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(kolejnaLinia);
 
-        if (idAdresataPobraneZPlikuInt != idUsuwanegoAdresata)
-            if (idKolejnegoAdresataPobraneZPlikuInt == idOstatniegoAdresata & idKolejnegoAdresataPobraneZPlikuInt == idUsuwanegoAdresata)
+        if (idAdresataPobraneZPlikuInt != idUsuwanegoAdresata){
+            if (idKolejnegoAdresataPobraneZPlikuInt == idOstatniegoAdresata && idKolejnegoAdresataPobraneZPlikuInt == idUsuwanegoAdresata){
                 plikTymczasowy << liniaRobocza;
-            else
+            }
+            else{
                 plikTymczasowy << liniaRobocza << '\n' ;
-
+            }
+        }
+        idPrzedostatniegoAdresata = idAdresataPobraneZPlikuInt;
         liniaRobocza = kolejnaLinia;
         idAdresataPobraneZPlikuInt = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(liniaRobocza);
     }
-    if (idKolejnegoAdresataPobraneZPlikuInt != idUsuwanegoAdresata)
-        plikTymczasowy << kolejnaLinia;
-
+    if (idAdresataPobraneZPlikuInt != idUsuwanegoAdresata){
+        plikTymczasowy << liniaRobocza;
+        idOstatniegoAdresata = idAdresataPobraneZPlikuInt;
+    }
+    else{
+        idOstatniegoAdresata = idPrzedostatniegoAdresata;
+    }
     plikTekstowy.close();
     plikTymczasowy.close();
 
@@ -171,6 +185,7 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata){
 }
 
 void PlikZAdresatami::zaktualizujDaneWybranegoAdresata (Adresat adresat, int idEdytowanegoAdresata){
+
     int idAdresataPobraneZPlikuInt = 0, idUzytkownikaPobraneZPlikuInt = 0;
     string liniaRobocza = "", idUzytkownikaPobraneZPliku = "";
 

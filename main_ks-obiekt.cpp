@@ -23,7 +23,7 @@ int main(){
                 exit(0);
                 break;
             default:
-                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                cout << '\n' << "Nie ma takiej opcji w menu." << '\n' << '\n';
                 system("pause");
                 break;
             }
