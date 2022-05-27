@@ -11,7 +11,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
     if (plikTekstowy.good()){
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (metodyPomocnicze.czyPlikJestPusty(plikTekstowy)){
+        if (czyPlikJestPusty(plikTekstowy)){
             plikTekstowy << liniaZDanymiAdresata;
         }
         else{

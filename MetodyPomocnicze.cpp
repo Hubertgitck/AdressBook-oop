@@ -22,14 +22,6 @@ string MetodyPomocnicze::wczytajLinie(){
     return wejscie;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy){
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst){
     if (!tekst.empty()){
         transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);

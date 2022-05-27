@@ -4,14 +4,14 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-//#include <cstdlib>
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZAdresatami{
+class PlikZAdresatami :public PlikTekstowy{
 
     MetodyPomocnicze metodyPomocnicze;
 
@@ -23,8 +23,6 @@ class PlikZAdresatami{
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-
-
 
 public:
 

@@ -10,7 +10,6 @@ using namespace std;
 
 class MetodyPomocnicze{
 
-
 public:
     string konwerjsaIntNaString(int liczba);
     string wczytajLinie();
@@ -19,7 +18,6 @@ public:
     bool czyPlikJestPusty(fstream &plikTekstowy);
     int konwersjaStringNaInt(string liczba);
     int wczytajLiczbeCalkowita();
-
 };
 
 #endif // METODYPOMOCNICZE_H

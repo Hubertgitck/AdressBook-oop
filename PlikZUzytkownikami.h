@@ -8,10 +8,11 @@
 
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZUzytkownikami{
+class PlikZUzytkownikami:public PlikTekstowy{
 
     MetodyPomocnicze metodyPomocnicze;
 

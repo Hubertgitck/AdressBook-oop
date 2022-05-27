@@ -10,7 +10,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik){
     if (plikTekstowy.good()){
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (metodyPomocnicze.czyPlikJestPusty(plikTekstowy)){
+        if (czyPlikJestPusty(plikTekstowy)){
             plikTekstowy << liniaZDanymiUzytkownika;
         }
         else{
