@@ -8,7 +8,7 @@ using namespace std;
 
 class PlikTekstowy{
 
-public:
+protected:
 
     bool czyPlikJestPusty(fstream &plikTekstowy);
 };
