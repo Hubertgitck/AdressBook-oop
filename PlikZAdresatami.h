@@ -15,7 +15,6 @@ class PlikZAdresatami :public PlikTekstowy{
 
     MetodyPomocnicze metodyPomocnicze;
 
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
@@ -26,7 +25,7 @@ class PlikZAdresatami :public PlikTekstowy{
 
 public:
 
-    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
+    PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku){
         idOstatniegoAdresata = 0;
     };
     bool dopiszAdresataDoPliku(Adresat adresat);
